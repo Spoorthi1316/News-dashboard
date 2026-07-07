@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="A personalized news analytics dashboard with live headlines, search, category filters, source analytics, and a built-in chat assistant.">
+
+    <title>Personalized News Analytics Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Personalized News Analytics Dashboard</h1>
+
+    <!-- Controls -->
+
+    <div class="controls">
+
+        <!-- Category -->
+
+        <select id="category" aria-label="News category">
+
+            <option value="general">General</option>
+
+            <option value="world">World</option>
+
+            <option value="nation">Nation</option>
+
+            <option value="business">Business</option>
+
+            <option value="technology">Technology</option>
+
+            <option value="sports">Sports</option>
+
+            <option value="science">Science</option>
+
+            <option value="health">Health</option>
+
+            <option value="entertainment">Entertainment</option>
+
+        </select>
+
+        <!-- Country -->
+
+        <select id="country" aria-label="Country">
+
+            <option value="in">India</option>
+
+            <option value="us">United States</option>
+
+            <option value="gb">United Kingdom</option>
+
+            <option value="au">Australia</option>
+
+            <option value="ca">Canada</option>
+
+        </select>
+
+        <button id="getNewsBtn" onclick="getNews()">
+
+            Get News
+
+        </button>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="searchBox">
+
+        <input
+
+            type="text"
+
+            id="searchInput"
+
+            placeholder="Search any topic (AI, Tesla, IPL...)"
+
+            aria-label="Search news topic"
+
+        >
+
+        <button id="searchBtn" onclick="searchNews()">
+
+            Search
+
+        </button>
+    </div>
+
+    <!-- Dashboard -->
+
+    <div class="dashboard">
+
+        <div class="statCard">
+
+            <h3>Total Articles</h3>
+
+            <p id="articleCount">0</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h3>News Sources</h3>
+
+            <p id="sourceCount">0</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h3>Current Category</h3>
+
+            <p id="currentCategory">-</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h3>Last Updated</h3>
+
+            <p id="lastUpdated">-</p>
+
+        </div>
+
+    </div>
+
+    <!-- View Toggle -->
+
+    <div class="viewToggle">
+
+        <button onclick="showCardView()">
+
+            Card View
+
+        </button>
+
+        <button onclick="showChartView()">
+
+            Chart View
+
+        </button>
+
+    </div>
+
+    <!-- Featured Headline -->
+
+    <div id="featuredCard">
+
+        <h2>Featured Headline</h2>
+
+        <div id="featuredNews">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+    <!-- Status / Loading / Error -->
+
+    <div id="statusArea">
+
+        <div id="loadingIndicator" class="hidden">
+
+            <span class="spinner"></span>
+
+            <span id="loadingText">Loading latest news...</span>
+
+        </div>
+
+        <div id="errorBox" class="hidden">
+
+            <p id="errorMessage"></p>
+
+            <button id="retryBtn" onclick="retryLastAction()">Retry</button>
+
+        </div>
+
+        <p id="status"></p>
+
+    </div>
+
+    <!-- Chart -->
+
+    <div id="chartSection">
+
+        <canvas id="newsChart"></canvas>
+
+    </div>
+
+    <!-- News -->
+
+    <div id="newsContainer">
+
+    </div>
+
+</div>
+
+<!-- Floating Chatbot -->
+
+<div id="chatbot">
+
+    <h3>News Assistant</h3>
+
+    <div id="chatArea">
+
+        Hello!
+
+        <br><br>
+
+        Try typing:
+
+        <br>
+
+        technology
+
+        <br>
+
+        sports
+
+        <br>
+
+        business
+
+        <br>
+
+        health
+
+        <br>
+
+        science
+
+        <br>
+
+        help
+
+    </div>
+
+    <input
+
+        type="text"
+
+        id="chatInput"
+
+        placeholder="Ask me anything..."
+
+        aria-label="Chat with news assistant"
+
+    >
+
+    <button onclick="chatBot()">
+
+        Send
+
+    </button>
+
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
