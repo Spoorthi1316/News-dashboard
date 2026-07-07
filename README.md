@@ -36,7 +36,6 @@ A single-page news dashboard built with vanilla HTML, CSS, and JavaScript. It pu
 ├── index.html            # Markup and layout
 ├── style.css              # Styling, responsive rules, loading/skeleton animations
 ├── script.js              # App logic: fetching, caching, chatbot, chart, state
-├── config.js              # Your actual API key (gitignored, not committed)
 └── .gitignore
 ```
 
